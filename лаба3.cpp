@@ -130,35 +130,53 @@ using namespace std;
 
 
 //nomer 7
-int main()
-{
-    int l1, l2, l3;
-    char str1[] = "london";
-    char str2[] = "paris";
-    char str3[] = "moscow";
-    l1 = strlen(str1);
-    l2 = strlen(str2);
-    l3 = strlen(str3);
-    if (l1 > l2)
-    {
-        if (l1 > l3) cout << "the longest " << str1 << endl;
-        else cout << "the longest " << str3 << endl;
-    }
-    else
-    {
-        if (l2 > l3)cout << "the longest " << str2 << endl;
-        else cout << "the longest " << str3 << endl;
-    };
+// int main()
+// {
+//     int l1, l2, l3;
+//     char str1[] = "london";
+//     char str2[] = "paris";
+//     char str3[] = "moscow";
+//     l1 = strlen(str1);
+//     l2 = strlen(str2);
+//     l3 = strlen(str3);
+//     if (l1 > l2)
+//     {
+//         if (l1 > l3) cout << "the longest " << str1 << endl;
+//         else cout << "the longest " << str3 << endl;
+//     }
+//     else
+//     {
+//         if (l2 > l3)cout << "the longest " << str2 << endl;
+//         else cout << "the longest " << str3 << endl;
+//     };
 
-    if (l1 < l2)
-    {
-        if (l1 < l3) cout << "the shortest " << str1 << endl;
-        else cout << "the shortest " << str3 << endl;
-    }
-    else
-    {
-        if (l2 < l3)cout << "the shortest " << str2 << endl;
-        else cout << "the shortest " << str3 << endl;
-    };
-    return 0;
+//     if (l1 < l2)
+//     {
+//         if (l1 < l3) cout << "the shortest " << str1 << endl;
+//         else cout << "the shortest " << str3 << endl;
+//     }
+//     else
+//     {
+//         if (l2 < l3)cout << "the shortest " << str2 << endl;
+//         else cout << "the shortest " << str3 << endl;
+//     };
+//     return 0;
+// }
+
+
+//nomer 10
+int main() {
+	vector <string> vector1 = { "Can", "you", "can", "a", "can", "as", "a", "canner", "can", "can", "a", "can", "?" };
+	string new_word;
+	cout << "Введите новое слово: ";
+	cin >> new_word;
+	cout << endl;
+	for (int i = 0; i < vector1.size(); ++i) {
+		if (vector1[i] == "can" or vector1[i] == "Can") {
+			vector1[i] = new_word;
+		}
+		cout << vector1[i] << " ";
+	}
+	cout << endl;
+	return 0;
 }
