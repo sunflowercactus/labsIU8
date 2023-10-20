@@ -81,39 +81,53 @@ using namespace std;
 //номер 2
 #include <cmath> // abs 
 
-int main() {
-	pair<unsigned char, unsigned char> positionA, positionB;
+int main(){
+	pair<int, int> positionA, positionB;
+	
+	cout << "Enter coordinates positionA: ";
+	cin>>positionA.first>>positionA.second; // don't need ">>endl;"
+	
+	cout << "Enter coordinates positionB: ";
+	cin >> positionB.first >> positionB.second; // don't need ">>endl;"
+	
+	if ((positionA.first > 0 && positionA.first < 9) && (positionA.second > 0 && positionA.second < 9) && 
+	   (positionB.first > 0 && positionB.first < 9) && (positionB.second > 0 && positionB.second < 9) ){
 
-	cout << "Coordinates A: ";
-	cin >> positionA.first >> positionA.second; 
-
-	cout << "Coordinates B: ";
-	cin >> positionB.first >> positionB.second; 
-
-	if (positionA.first == positionB.first or positionA.second == positionB.second) {
-		cout << "Ladia fights B" << endl;
+		if (positionA.first == positionB.first || positionA.second == positionB.second){
+			cout << "Ladia fights positionB." << endl;
+		}
+		
+		if (abs(positionA.first-positionB.first) == abs(positionA.second-positionB.second)) { 
+			cout << "Elephant fights positionB." << endl;
+		}
+		
+		if (abs(positionA.first-positionB.first) <=1 && abs(positionA.second-positionB.second) <=1){
+			cout << "King can fight positionB." << endl;
+			}
+			
+		if (positionA.first == positionB.first || positionA.second == positionB.second || 
+		abs(positionA.first-positionB.first) == abs(positionA.second-positionB.second)) {
+			cout << "Ferz fights positionB." << endl;
+		}
+		
+		
+		if ((positionA.first == positionB.first && positionB.second == positionA.second + 1) ) {
+	        	cout << "White peshka can fight positionB." << endl;
+	        }
+	        
+	    else if (abs(positionB.first - positionA.first) == 1 && positionB.second - positionA.second == 1) {
+		cout << "White peshka fights positionB." << endl;	
+		}
+		
+		else if((positionA.second == 2) && positionA.first == positionB.first && (positionB.second == positionA.second + 2)){
+			cout<<"White peshka goes through 2 pols."<<endl;
+		}
+		else{
+			cout<<"Dont go!"<<endl;
+		}
 	}
-
-	if (abs(positionA.first - positionB.first) == abs(positionA.second - positionB.second)) {  // когда элементы матрицы находятся на одной диагонали? 
-		cout << "Elephant fights B" << endl;
-	}
-
-	if (abs(positionA.first - positionB.first) <= 1 and abs(positionA.second - positionB.second) <= 1) {
-		cout << "King can be on B" << endl;
-	}
-
-	if (positionA.first == positionB.first or positionA.second == positionB.second or
-		abs(positionA.first - positionB.first) == abs(positionA.second - positionB.second)) {
-		cout << "Ferz fights B" << endl;
-	}
-
-	if ((positionA.first == positionB.first && positionB.second == positionA.second + 1) || (positionB.first - positionA.first == 1 && abs(positionB.second - positionA.second) == 1)) {
-		cout << "White peshka can be on B." << endl;
-	}
-
-	if (abs(positionB.first - positionA.first) == 1 && positionB.second - positionA.second == 1) {
-		cout << "White peshka fights B." << endl;
-	}
-	return 0;
-
+	
+	else cout << "Coordinates dont match";
+    return 0;
+		
 }
