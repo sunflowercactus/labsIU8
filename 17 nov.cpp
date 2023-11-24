@@ -14,7 +14,7 @@ struct Node {
 class LinkedList {
     public:
         bool add_element(int data);
-        int delete_element(int data);
+        bool delete_element(int data);
         bool find_element(int data);
         bool insert(int data, int position);
 
