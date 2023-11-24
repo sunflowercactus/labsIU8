@@ -28,12 +28,6 @@ void Construct(Matrix& out, size_t n, size_t m) {
 	}
 	return;
 }
-// Освобождает выделенную память.
-void Destruct(Matrix& in) {
-	for (size_t i = 0; i < in.n_; ++i) {
-		delete in.matrix[i];
-	}
-}
 
 // Создает копию матрицы |matrix|.
 Matrix Copy(const Matrix& data) {
@@ -116,7 +110,13 @@ void Transposition(Matrix& x) {
 	Destruct(matrix_res);
 	
 }
-
+void Destruct(Matrix& in) {
+  for (size_t i = 0; i < in.n_; ++i) {
+    delete[] in.data_[i];
+  }
+  delete[] in.data_;
+  in.data_ = nullptr;
+}
 
 int main()
 {   Matrix m;
