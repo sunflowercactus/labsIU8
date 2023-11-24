@@ -83,7 +83,17 @@ bool LinkedList::insert(int data, int position) {
 
     return false;
 }
-
+bool LinkedList::delete_element(int position) { if (position == 0) {
+  Node* el = first->next;  delete first;
+  first = el;  return true;
+ } else {
+  Node* el = nullptr;  size_t i = 0;
+  Node* current_el = first;  while (i != position-1) {
+   ++i;   current_el = current_el->next;
+  }  el = (current_el->next)->next;
+  delete current_el->next;  current_el->next = el;
+  return true; }
+ return false;}
 LinkedList::~LinkedList() {
     if (last != nullptr) {
         Node* current = first;
